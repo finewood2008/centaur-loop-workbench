@@ -1,0 +1,5 @@
+[run]
+build = "echo 'static site - no build step needed'"
+
+[build]
+publish = "."
