@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Open-source workbench that turns agent work into an accountable cycle: plan, approve, execute, review, publish, feedback, reflect, remember." },
       { name: "author", content: "Centaur Loop" },
       { property: "og:title", content: "Centaur Loop — The workbench for human-governed AI loops" },
-      { property: "og:description", content: "Open-source workbench for human-in-the-loop AI agents. TypeScript runtime + React control plane." },
+      { property: "og:description", content: "Open-source workbench that turns agent work into an accountable cycle: plan, approve, execute, review, publish, feedback, reflect, remember." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Centaur Loop — The workbench for human-governed AI loops" },
+      { name: "twitter:description", content: "Open-source workbench that turns agent work into an accountable cycle: plan, approve, execute, review, publish, feedback, reflect, remember." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7807eccd-df46-485a-8767-17b9cca68f4d/id-preview-c65b3d8c--253eb89a-0a4f-4150-a21d-eb317b032018.lovable.app-1778270862328.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7807eccd-df46-485a-8767-17b9cca68f4d/id-preview-c65b3d8c--253eb89a-0a4f-4150-a21d-eb317b032018.lovable.app-1778270862328.png" },
     ],
     links: [
       {
