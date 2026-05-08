@@ -1,6 +1,6 @@
 [run]
-build = "echo 'static site - no build step needed'"
-"build:dev" = "echo 'static site - no build step needed'"
+build = "mkdir -p dist && cp index.html dist/"
+"build:dev" = "mkdir -p dist && cp index.html dist/"
 
 [build]
-publish = "."
+publish = "dist"
