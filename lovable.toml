@@ -1,6 +1,6 @@
 [run]
-build = "mkdir -p dist && cp index.html dist/"
-"build:dev" = "mkdir -p dist && cp index.html dist/"
+build = "mkdir -p dist && cp index.html og-image.png dist/"
+"build:dev" = "mkdir -p dist && cp index.html og-image.png dist/"
 
 [build]
 publish = "dist"
