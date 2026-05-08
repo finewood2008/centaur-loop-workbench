@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Centaur Loop - Human-governed AI feedback loops</title>
-  <meta name="description" content="Centaur Loop is the open-source workbench for human-governed AI feedback loops: plan, approve, execute, review, publish, collect feedback, remember, and improve.">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Centaur Loop - Human-governed AI feedback loops</title>
+<meta content="Centaur Loop is the open-source workbench for human-governed AI feedback loops: plan, approve, execute, review, publish, collect feedback, remember, and improve." name="description"/>
+<style>
     :root {
       --bg: #faf7f2;
       --surface: #fffefa;
@@ -344,246 +345,277 @@
       .module { grid-template-columns: 1fr; gap: 6px; }
       .ds-table { display: block; overflow-x: auto; white-space: nowrap; }
     }
-  </style>
+  
+.topnav-inner { gap: 16px; flex-wrap: wrap; }
+.lang-switch { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.lang-switch button { appearance: none; border: 0; background: transparent; padding: 6px 10px; font: 500 12px/1 var(--font-body); color: var(--muted); border-radius: 6px; cursor: pointer; letter-spacing: .02em; }
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button.active { background: var(--accent); color: #fff; }
+@media (max-width: 720px) { .lang-switch button { padding: 5px 8px; font-size: 11px; } }
+</style>
 </head>
 <body>
-  <header class="topnav" data-od-id="topnav">
-    <div class="container topnav-inner">
-      <a class="logo" href="#top" aria-label="Centaur Loop home">
-        <span class="logo-mark">CL</span>
-        <span>Centaur Loop</span>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="#why">Why</a>
-        <a href="#lifecycle">Lifecycle</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#use-cases">Use cases</a>
-      </nav>
-      <a class="btn btn-primary" href="https://github.com/finewood2008/centaur-loop">Star on GitHub</a>
-    </div>
-  </header>
+<header class="topnav" data-od-id="topnav">
+<div class="container topnav-inner">
+<a aria-label="Centaur Loop home" class="logo" href="#top">
+<span class="logo-mark">CL</span>
+<span>Centaur Loop</span>
+</a>
+<nav aria-label="Primary navigation">
+<a data-i18n="nav.why" href="#why">Why</a>
+<a data-i18n="nav.lifecycle" href="#lifecycle">Lifecycle</a>
+<a data-i18n="nav.architecture" href="#architecture">Architecture</a>
+<a data-i18n="nav.usecases" href="#use-cases">Use cases</a>
+</nav>
+<a class="btn btn-primary" data-i18n="nav.star" href="https://github.com/finewood2008/centaur-loop">Star on GitHub</a>
+<div aria-label="Language" class="lang-switch" role="group"><button data-lang="en" type="button">EN</button><button data-lang="zh" type="button">中文</button><button data-lang="ja" type="button">日本語</button><button data-lang="es" type="button">ES</button></div></div>
+</header>
+<main id="top">
+<section class="section hero" data-od-id="hero">
+<div class="container hero-split">
+<div class="hero-copy">
+<p class="eyebrow" data-i18n="hero.eyebrow">Open-source control plane / AI feedback loops</p>
+<h1 data-i18n="hero.h1">The workbench for human-governed AI loops.</h1>
+<p class="lead" data-i18n="hero.lead">Centaur Loop turns agent work into a full operating cycle: plan, approve, execute, review, publish, collect feedback, reflect, remember, and improve the next run.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" data-i18n="hero.cta1" href="https://github.com/finewood2008/centaur-loop">View GitHub</a>
+<a class="btn btn-secondary btn-arrow" data-i18n="hero.cta2" href="#architecture">Read the design</a>
+</div>
+<ul class="badges">
+<li class="tag">TypeScript</li>
+<li class="tag">React 18</li>
+<li class="tag">Vite</li>
+<li class="tag">Zustand</li>
+<li class="tag">OpenAI-compatible runtime</li>
+</ul>
+</div>
+<div aria-label="Centaur Loop product interface illustration" class="hero-visual" role="img">
+<div class="terminal">
+<div class="terminal-head">
+<span data-i18n="term.head">cycle://content-growth/weekly</span>
+<span aria-hidden="true" class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+</div>
+<div class="terminal-body">
+<div class="loop-line">
+<span class="stage" data-i18n="term.s1">Planning</span>
+<div><strong data-i18n="term.s1t">AI proposes the cycle plan</strong><p data-i18n="term.s1p">Goal, memories, tool registry, business context, and previous suggestions become structured tasks.</p></div>
+</div>
+<div class="loop-line">
+<span class="stage active" data-i18n="term.s2">Human Gate</span>
+<div><strong data-i18n="term.s2t">Owner approves what needs judgment</strong><p data-i18n="term.s2p">Plans, drafts, publishing, feedback, and memory candidates become first-class checkpoints.</p></div>
+</div>
+<div class="loop-line">
+<span class="stage" data-i18n="term.s3">Execution</span>
+<div><strong data-i18n="term.s3t">Agent work continues automatically</strong><p data-i18n="term.s3p">Drafts are generated through adapter-ready tools without losing the loop state.</p></div>
+</div>
+<div class="loop-line">
+<span class="stage" data-i18n="term.s4">Review</span>
+<div><strong data-i18n="term.s4t">Outcomes become memory</strong><p data-i18n="term.s4p">Feedback is reviewed into lessons, corrections, preferences, and next-cycle suggestions.</p></div>
+</div>
+<div class="command">
+                npm install<br/>
+                npm run dev<br/>
+<span class="terminal-comment" data-i18n="term.cmd"># demo runtime works without API keys</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" data-od-id="features" id="why">
+<div class="container stack stack-loose">
+<div class="narrow-copy">
+<p class="eyebrow" data-i18n="why.eyebrow">What's different</p>
+<h2 data-i18n="why.h2">Not another scheduler. Not another workflow canvas.</h2>
+</div>
+<div class="grid-3">
+<div class="feature card-flat">
+<div class="feature-mark">
+<svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M12 3v18M3 12h18"></path></svg>
+</div>
+<h3 data-i18n="why.f1t">The loop is the product</h3>
+<p data-i18n="why.f1p">Centaur Loop models the whole business iteration around agent work, not just the task execution step.</p>
+</div>
+<div class="feature card-flat">
+<div class="feature-mark">
+<svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg>
+</div>
+<h3 data-i18n="why.f2t">Human gates are explicit</h3>
+<p data-i18n="why.f2p">AI runs where it can, then stops at checkpoints where people own taste, compliance, publishing, and final judgment.</p>
+</div>
+<div class="feature card-flat">
+<div class="feature-mark">
+<svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h16"></path></svg>
+</div>
+<h3 data-i18n="why.f3t">Feedback becomes memory</h3>
+<p data-i18n="why.f3p">Real outcomes, screenshots, notes, and metrics are reviewed into memory candidates that improve the next cycle.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" data-od-id="lifecycle" id="lifecycle">
+<div class="container stack stack-compact">
+<div class="grid-2-1">
+<div>
+<p class="eyebrow" data-i18n="lc.eyebrow">Lifecycle</p>
+<h2 data-i18n="lc.h2">A state machine built for accountable agent work.</h2>
+</div>
+<p class="lead" data-i18n="lc.lead">Most agent systems end when the answer is generated. Centaur Loop keeps the operational surface open until the work is reviewed, measured, and turned into next-cycle guidance.</p>
+</div>
+<ol class="flow">
+<li class="flow-step"><span class="meta">01</span><strong data-i18n="lc.1n">planning</strong><p data-i18n="lc.1d">Generate a structured plan and task list from goals and memory.</p></li>
+<li class="flow-step"><span class="meta">02</span><strong data-i18n="lc.2n">awaiting plan review</strong><p data-i18n="lc.2d">Pause for owner confirmation or edits before work begins.</p></li>
+<li class="flow-step"><span class="meta">03</span><strong data-i18n="lc.3n">generating</strong><p data-i18n="lc.3d">Create drafts through registered AI tool definitions.</p></li>
+<li class="flow-step"><span class="meta">04</span><strong data-i18n="lc.4n">awaiting review</strong><p data-i18n="lc.4d">Approve, reject, or request changes per draft.</p></li>
+<li class="flow-step"><span class="meta">05</span><strong data-i18n="lc.5n">awaiting publish</strong><p data-i18n="lc.5d">Keep manual publishing visible as a governed checkpoint.</p></li>
+<li class="flow-step"><span class="meta">06</span><strong data-i18n="lc.6n">awaiting feedback</strong><p data-i18n="lc.6d">Capture metrics, notes, screenshots, and outcome signals.</p></li>
+<li class="flow-step"><span class="meta">07</span><strong data-i18n="lc.7n">reviewing auto</strong><p data-i18n="lc.7d">Analyze what worked, what failed, and why.</p></li>
+<li class="flow-step"><span class="meta">08</span><strong data-i18n="lc.8n">awaiting memory</strong><p data-i18n="lc.8d">Ask humans which lessons deserve long-term memory.</p></li>
+<li class="flow-step"><span class="meta">09</span><strong data-i18n="lc.9n">cycle complete</strong><p data-i18n="lc.9d">Carry suggestions forward into the next run.</p></li>
+<li class="flow-step"><span class="meta" data-i18n="lc.10m">Next</span><strong data-i18n="lc.10n">repeat with context</strong><p data-i18n="lc.10d">The loop starts again with reviewed experience.</p></li>
+</ol>
+</div>
+</section>
+<section class="section" data-od-id="architecture" id="architecture">
+<div class="container architecture">
+<div class="stack">
+<p class="eyebrow" data-i18n="arch.eyebrow">Architecture</p>
+<h2 data-i18n="arch.h2">Small enough to inspect. Structured enough to extend.</h2>
+<p class="lead" data-i18n="arch.lead">The current prototype is a working React workbench plus TypeScript loop runtime. It is early, but the core contracts are already visible: cycle state, human checkpoints, feedback, reviews, memory candidates, and adapter boundaries.</p>
+<div aria-label="Centaur Loop lifecycle code sample" class="code" role="img">Plan -&gt; Approve -&gt; Execute -&gt; Review -&gt; Publish -&gt; Feedback -&gt; Reflect -&gt; Remember -&gt; Next Cycle</div>
+</div>
+<div class="module-list">
+<div class="module"><strong>loopEngine.ts</strong><p data-i18n="arch.m1">Explicit state machine that advances cycles and stops at human gates.</p></div>
+<div class="module"><strong>loopPlanner.ts</strong><p data-i18n="arch.m2">Turns goals, memory, business context, and tools into a structured plan.</p></div>
+<div class="module"><strong>loopExecutor.ts</strong><p data-i18n="arch.m3">Generates reviewable drafts and keeps failures inside the cycle record.</p></div>
+<div class="module"><strong>loopReviewer.ts</strong><p data-i18n="arch.m4">Converts feedback into retrospectives, lessons, and next-cycle suggestions.</p></div>
+<div class="module"><strong>loopChat.ts</strong><p data-i18n="arch.m5">Maps runtime state to chat messages, cards, and user actions.</p></div>
+<div class="module"><strong>adapters/*</strong><p data-i18n="arch.m6">OpenAI-compatible model access, tool registry, and memory boundaries.</p></div>
+</div>
+</div>
+</section>
+<section class="section" data-od-id="use-cases" id="use-cases">
+<div class="container stack stack-compact">
+<div class="row-between">
+<div class="narrow-copy">
+<p class="eyebrow" data-i18n="uc.eyebrow">Starter loops</p>
+<h2 data-i18n="uc.h2">Designed for AI products where feedback matters.</h2>
+</div>
+<a class="btn btn-ghost btn-arrow" data-i18n="uc.readme" href="https://github.com/finewood2008/centaur-loop#readme">Open README</a>
+</div>
+<div class="grid-3">
+<article class="card usecase">
+<div>
+<span class="pill" data-i18n="uc.p1">Implemented</span>
+<h3 class="usecase-title" data-i18n="uc.t1">SEO / GEO Growth Loop</h3>
+<p data-i18n="uc.d1">Weekly content growth cycles for search and AI-answer visibility, including plans, drafts, publishing, feedback, review, and memory.</p>
+</div>
+<ul class="check-list">
+<li data-i18n="uc.l1a">WeChat articles</li>
+<li data-i18n="uc.l1b">Xiaohongshu notes</li>
+<li data-i18n="uc.l1c">SEO and GEO content</li>
+</ul>
+</article>
+<article class="card usecase">
+<div>
+<span class="pill" data-i18n="uc.p2">Template</span>
+<h3 class="usecase-title" data-i18n="uc.t2">Short-Video Production Loop</h3>
+<p data-i18n="uc.d2">Daily topic and script cycles with feedback-driven improvement and a path toward fast-loop / slow-loop orchestration.</p>
+</div>
+<ul class="check-list">
+<li data-i18n="uc.l2a">Topic confirmation</li>
+<li data-i18n="uc.l2b">Script review</li>
+<li data-i18n="uc.l2c">Outcome feedback</li>
+</ul>
+</article>
+<article class="card usecase">
+<div>
+<span class="pill" data-i18n="uc.p3">Roadmap</span>
+<h3 class="usecase-title" data-i18n="uc.t3">Agent Runtime Integrations</h3>
+<p data-i18n="uc.d3">Designed to wrap existing execution systems instead of replacing them, with examples planned for common workflow and agent runtimes.</p>
+</div>
+<ul class="check-list">
+<li data-i18n="uc.l3a">LangGraph and Mastra</li>
+<li data-i18n="uc.l3b">Temporal and Inngest</li>
+<li data-i18n="uc.l3c">n8n-style approvals</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<section class="section" data-od-id="comparison">
+<div class="container">
+<div class="center-heading">
+<p class="eyebrow" data-i18n="cmp.eyebrow">Positioning</p>
+<h2 data-i18n="cmp.h2">The missing layer around agent execution.</h2>
+</div>
+<table class="ds-table">
+<thead>
+<tr>
+<th data-i18n="cmp.h.layer">Layer</th>
+<th data-i18n="cmp.h.handles">What it handles</th>
+<th data-i18n="cmp.h.adds">What Centaur Loop adds</th>
+</tr>
+</thead>
+<tbody>
+<tr><td data-i18n="cmp.r1a">Cron / schedules</td><td data-i18n="cmp.r1b">Wake a job at a time</td><td data-i18n="cmp.r1c">Govern the full cycle before and after the job runs.</td></tr>
+<tr><td data-i18n="cmp.r2a">Workflow engines</td><td data-i18n="cmp.r2b">Move tasks through steps</td><td data-i18n="cmp.r2c">Make review, feedback, and memory part of the product surface.</td></tr>
+<tr><td data-i18n="cmp.r3a">Agent frameworks</td><td data-i18n="cmp.r3b">Plan and execute with models/tools</td><td data-i18n="cmp.r3c">Add human gates, business outcomes, and next-cycle improvement.</td></tr>
+<tr><td data-i18n="cmp.r4a">Publishing bots</td><td data-i18n="cmp.r4b">Push generated output somewhere</td><td data-i18n="cmp.r4c">Keep publishing accountable and learn from real-world response.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section cta-band" data-od-id="cta-strip">
+<div class="container">
+<p class="eyebrow" data-i18n="cta.eyebrow">Open source / MIT license</p>
+<h2 data-i18n="cta.h2">Build AI systems that improve after the work leaves chat.</h2>
+<p class="lead" data-i18n="cta.lead">Run the workbench locally, inspect the state machine, and help shape the core package, adapters, storage, notifications, and memory layer.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" data-i18n="cta.b1" href="https://github.com/finewood2008/centaur-loop">Star on GitHub</a>
+<a class="btn btn-secondary" data-i18n="cta.b2" href="https://github.com/finewood2008/centaur-loop/issues">Open issues</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="pagefoot" data-od-id="footer">
+<div class="container row-between">
+<span data-i18n="foot.copy">(c) 2026 Centaur Loop / MIT License</span>
+<span class="meta" data-i18n="foot.tag">Human judgment + AI execution + real feedback.</span>
+</div>
+</footer>
+<script>window.__I18N__ = {"en": {"doc.title": "Centaur Loop - Human-governed AI feedback loops", "doc.desc": "Centaur Loop is the open-source workbench for human-governed AI feedback loops: plan, approve, execute, review, publish, collect feedback, remember, and improve.", "nav.why": "Why", "nav.lifecycle": "Lifecycle", "nav.architecture": "Architecture", "nav.usecases": "Use cases", "nav.star": "Star on GitHub", "hero.eyebrow": "Open-source control plane / AI feedback loops", "hero.h1": "The workbench for human-governed AI loops.", "hero.lead": "Centaur Loop turns agent work into a full operating cycle: plan, approve, execute, review, publish, collect feedback, reflect, remember, and improve the next run.", "hero.cta1": "View GitHub", "hero.cta2": "Read the design", "term.head": "cycle://content-growth/weekly", "term.s1": "Planning", "term.s1t": "AI proposes the cycle plan", "term.s1p": "Goal, memories, tool registry, business context, and previous suggestions become structured tasks.", "term.s2": "Human Gate", "term.s2t": "Owner approves what needs judgment", "term.s2p": "Plans, drafts, publishing, feedback, and memory candidates become first-class checkpoints.", "term.s3": "Execution", "term.s3t": "Agent work continues automatically", "term.s3p": "Drafts are generated through adapter-ready tools without losing the loop state.", "term.s4": "Review", "term.s4t": "Outcomes become memory", "term.s4p": "Feedback is reviewed into lessons, corrections, preferences, and next-cycle suggestions.", "term.cmd": "# demo runtime works without API keys", "why.eyebrow": "What's different", "why.h2": "Not another scheduler. Not another workflow canvas.", "why.f1t": "The loop is the product", "why.f1p": "Centaur Loop models the whole business iteration around agent work, not just the task execution step.", "why.f2t": "Human gates are explicit", "why.f2p": "AI runs where it can, then stops at checkpoints where people own taste, compliance, publishing, and final judgment.", "why.f3t": "Feedback becomes memory", "why.f3p": "Real outcomes, screenshots, notes, and metrics are reviewed into memory candidates that improve the next cycle.", "lc.eyebrow": "Lifecycle", "lc.h2": "A state machine built for accountable agent work.", "lc.lead": "Most agent systems end when the answer is generated. Centaur Loop keeps the operational surface open until the work is reviewed, measured, and turned into next-cycle guidance.", "lc.1n": "planning", "lc.1d": "Generate a structured plan and task list from goals and memory.", "lc.2n": "awaiting plan review", "lc.2d": "Pause for owner confirmation or edits before work begins.", "lc.3n": "generating", "lc.3d": "Create drafts through registered AI tool definitions.", "lc.4n": "awaiting review", "lc.4d": "Approve, reject, or request changes per draft.", "lc.5n": "awaiting publish", "lc.5d": "Keep manual publishing visible as a governed checkpoint.", "lc.6n": "awaiting feedback", "lc.6d": "Capture metrics, notes, screenshots, and outcome signals.", "lc.7n": "reviewing auto", "lc.7d": "Analyze what worked, what failed, and why.", "lc.8n": "awaiting memory", "lc.8d": "Ask humans which lessons deserve long-term memory.", "lc.9n": "cycle complete", "lc.9d": "Carry suggestions forward into the next run.", "lc.10m": "Next", "lc.10n": "repeat with context", "lc.10d": "The loop starts again with reviewed experience.", "arch.eyebrow": "Architecture", "arch.h2": "Small enough to inspect. Structured enough to extend.", "arch.lead": "The current prototype is a working React workbench plus TypeScript loop runtime. It is early, but the core contracts are already visible: cycle state, human checkpoints, feedback, reviews, memory candidates, and adapter boundaries.", "arch.m1": "Explicit state machine that advances cycles and stops at human gates.", "arch.m2": "Turns goals, memory, business context, and tools into a structured plan.", "arch.m3": "Generates reviewable drafts and keeps failures inside the cycle record.", "arch.m4": "Converts feedback into retrospectives, lessons, and next-cycle suggestions.", "arch.m5": "Maps runtime state to chat messages, cards, and user actions.", "arch.m6": "OpenAI-compatible model access, tool registry, and memory boundaries.", "uc.eyebrow": "Starter loops", "uc.h2": "Designed for AI products where feedback matters.", "uc.readme": "Open README", "uc.p1": "Implemented", "uc.t1": "SEO / GEO Growth Loop", "uc.d1": "Weekly content growth cycles for search and AI-answer visibility, including plans, drafts, publishing, feedback, review, and memory.", "uc.l1a": "WeChat articles", "uc.l1b": "Xiaohongshu notes", "uc.l1c": "SEO and GEO content", "uc.p2": "Template", "uc.t2": "Short-Video Production Loop", "uc.d2": "Daily topic and script cycles with feedback-driven improvement and a path toward fast-loop / slow-loop orchestration.", "uc.l2a": "Topic confirmation", "uc.l2b": "Script review", "uc.l2c": "Outcome feedback", "uc.p3": "Roadmap", "uc.t3": "Agent Runtime Integrations", "uc.d3": "Designed to wrap existing execution systems instead of replacing them, with examples planned for common workflow and agent runtimes.", "uc.l3a": "LangGraph and Mastra", "uc.l3b": "Temporal and Inngest", "uc.l3c": "n8n-style approvals", "cmp.eyebrow": "Positioning", "cmp.h2": "The missing layer around agent execution.", "cmp.h.layer": "Layer", "cmp.h.handles": "What it handles", "cmp.h.adds": "What Centaur Loop adds", "cmp.r1a": "Cron / schedules", "cmp.r1b": "Wake a job at a time", "cmp.r1c": "Govern the full cycle before and after the job runs.", "cmp.r2a": "Workflow engines", "cmp.r2b": "Move tasks through steps", "cmp.r2c": "Make review, feedback, and memory part of the product surface.", "cmp.r3a": "Agent frameworks", "cmp.r3b": "Plan and execute with models/tools", "cmp.r3c": "Add human gates, business outcomes, and next-cycle improvement.", "cmp.r4a": "Publishing bots", "cmp.r4b": "Push generated output somewhere", "cmp.r4c": "Keep publishing accountable and learn from real-world response.", "cta.eyebrow": "Open source / MIT license", "cta.h2": "Build AI systems that improve after the work leaves chat.", "cta.lead": "Run the workbench locally, inspect the state machine, and help shape the core package, adapters, storage, notifications, and memory layer.", "cta.b1": "Star on GitHub", "cta.b2": "Open issues", "foot.copy": "(c) 2026 Centaur Loop / MIT License", "foot.tag": "Human judgment + AI execution + real feedback."}, "zh": {"doc.title": "Centaur Loop —— 人类治理的 AI 反馈回路工作台", "doc.desc": "Centaur Loop 是一个开源工作台,用于构建由人类治理的 AI 反馈回路:规划、审批、执行、复核、发布、收集反馈、记忆并持续改进。", "nav.why": "理念", "nav.lifecycle": "生命周期", "nav.architecture": "架构", "nav.usecases": "应用场景", "nav.star": "在 GitHub 上 Star", "hero.eyebrow": "开源控制平面 / AI 反馈回路", "hero.h1": "为人类治理的 AI 回路而生的工作台。", "hero.lead": "Centaur Loop 把 Agent 的工作转化为完整的运营周期:规划、审批、执行、复核、发布、收集反馈、反思、记忆,并改进下一轮。", "hero.cta1": "查看 GitHub", "hero.cta2": "阅读设计", "term.head": "cycle://content-growth/weekly", "term.s1": "规划", "term.s1t": "AI 提出本轮计划", "term.s1p": "目标、记忆、工具注册表、业务上下文与历史建议被组织成结构化任务。", "term.s2": "人类关卡", "term.s2t": "由负责人审批需要判断的环节", "term.s2p": "计划、草稿、发布、反馈与记忆候选都是一等公民的检查点。", "term.s3": "执行", "term.s3t": "Agent 自动继续工作", "term.s3p": "通过可适配的工具生成草稿,且不会丢失回路状态。", "term.s4": "复核", "term.s4t": "结果沉淀为记忆", "term.s4p": "反馈被复核为经验、修正、偏好与下一轮建议。", "term.cmd": "# 演示运行时无需 API Key", "why.eyebrow": "差异点", "why.h2": "不是又一个调度器,也不是又一个工作流画布。", "why.f1t": "回路本身就是产品", "why.f1p": "Centaur Loop 围绕 Agent 的工作建模整个业务迭代,而不仅仅是执行那一步。", "why.f2t": "人类关卡显式存在", "why.f2p": "AI 在能跑的地方跑,在品味、合规、发布与最终判断这些环节交还给人。", "why.f3t": "反馈沉淀为记忆", "why.f3p": "真实结果、截图、笔记与指标被复核为记忆候选,持续改进下一轮。", "lc.eyebrow": "生命周期", "lc.h2": "为可问责的 Agent 工作而设计的状态机。", "lc.lead": "大多数 Agent 系统在生成答案时就结束了。Centaur Loop 保持运营面持续打开,直到工作被复核、被度量,并转化为下一轮的指引。", "lc.1n": "planning · 规划", "lc.1d": "依据目标与记忆生成结构化的计划与任务列表。", "lc.2n": "awaiting plan review · 待审批", "lc.2d": "在工作开始前暂停,等待负责人确认或修改。", "lc.3n": "generating · 生成中", "lc.3d": "通过已注册的 AI 工具定义生成草稿。", "lc.4n": "awaiting review · 待复核", "lc.4d": "对每份草稿进行通过、驳回或要求修改。", "lc.5n": "awaiting publish · 待发布", "lc.5d": "把人工发布作为可治理的检查点显式保留。", "lc.6n": "awaiting feedback · 待反馈", "lc.6d": "收集指标、笔记、截图与结果信号。", "lc.7n": "reviewing auto · 自动复盘", "lc.7d": "分析什么有效、什么失败以及原因。", "lc.8n": "awaiting memory · 待沉淀", "lc.8d": "由人类决定哪些经验值得长期记忆。", "lc.9n": "cycle complete · 周期完成", "lc.9d": "把建议带入下一轮运行。", "lc.10m": "下一轮", "lc.10n": "带着上下文重新开始", "lc.10d": "回路在已复核的经验上重新启动。", "arch.eyebrow": "架构", "arch.h2": "小到可以读完,结构上又能持续扩展。", "arch.lead": "当前原型由可运行的 React 工作台与 TypeScript 回路运行时组成。仍是早期,但核心契约已经清晰:周期状态、人类检查点、反馈、复核、记忆候选与适配器边界。", "arch.m1": "显式状态机,推进周期并在人类关卡停下来。", "arch.m2": "把目标、记忆、业务上下文与工具转化为结构化计划。", "arch.m3": "生成可复核的草稿,并把失败保留在周期记录中。", "arch.m4": "把反馈转化为复盘、经验与下一轮的建议。", "arch.m5": "把运行时状态映射为聊天消息、卡片与用户操作。", "arch.m6": "OpenAI 兼容的模型访问、工具注册表与记忆边界。", "uc.eyebrow": "起步回路", "uc.h2": "为以反馈为核心的 AI 产品而设计。", "uc.readme": "查看 README", "uc.p1": "已实现", "uc.t1": "SEO / GEO 增长回路", "uc.d1": "面向搜索与 AI 答案可见性的周度内容增长周期,包括计划、草稿、发布、反馈、复核与记忆。", "uc.l1a": "微信公众号文章", "uc.l1b": "小红书笔记", "uc.l1c": "SEO 与 GEO 内容", "uc.p2": "模板", "uc.t2": "短视频生产回路", "uc.d2": "每日选题与脚本周期,以反馈驱动改进,并向快回路 / 慢回路编排演进。", "uc.l2a": "选题确认", "uc.l2b": "脚本复核", "uc.l2c": "结果反馈", "uc.p3": "规划中", "uc.t3": "Agent 运行时集成", "uc.d3": "设计上是包裹既有执行系统而非替代,计划提供常见工作流与 Agent 运行时的示例。", "uc.l3a": "LangGraph 与 Mastra", "uc.l3b": "Temporal 与 Inngest", "uc.l3c": "n8n 风格的审批", "cmp.eyebrow": "定位", "cmp.h2": "Agent 执行之外缺失的那一层。", "cmp.h.layer": "层级", "cmp.h.handles": "解决什么", "cmp.h.adds": "Centaur Loop 补充什么", "cmp.r1a": "Cron / 定时", "cmp.r1b": "在某个时刻唤起任务", "cmp.r1c": "治理任务运行前后整个周期。", "cmp.r2a": "工作流引擎", "cmp.r2b": "在步骤之间流转任务", "cmp.r2c": "把复核、反馈与记忆变成产品本身的一部分。", "cmp.r3a": "Agent 框架", "cmp.r3b": "用模型与工具规划和执行", "cmp.r3c": "补上人类关卡、业务结果与下一轮改进。", "cmp.r4a": "发布机器人", "cmp.r4b": "把生成结果推送到某处", "cmp.r4c": "让发布保持可问责,并从真实反馈中学习。", "cta.eyebrow": "开源 / MIT 许可", "cta.h2": "构建在工作离开聊天框之后仍能持续改进的 AI 系统。", "cta.lead": "在本地运行工作台,审视状态机,共同打磨核心包、适配器、存储、通知与记忆层。", "cta.b1": "在 GitHub 上 Star", "cta.b2": "提交 Issue", "foot.copy": "(c) 2026 Centaur Loop / MIT 许可", "foot.tag": "人类判断 + AI 执行 + 真实反馈。"}, "ja": {"doc.title": "Centaur Loop — 人間が統治する AI フィードバックループ", "doc.desc": "Centaur Loop は、計画・承認・実行・レビュー・公開・フィードバック収集・記憶・改善を一巡させる、人間が統治する AI フィードバックループのオープンソース ワークベンチです。", "nav.why": "特徴", "nav.lifecycle": "ライフサイクル", "nav.architecture": "アーキテクチャ", "nav.usecases": "ユースケース", "nav.star": "GitHub でスター", "hero.eyebrow": "オープンソース コントロールプレーン / AI フィードバックループ", "hero.h1": "人間が統治する AI ループのためのワークベンチ。", "hero.lead": "Centaur Loop はエージェントの作業を、計画・承認・実行・レビュー・公開・フィードバック収集・振り返り・記憶・次回改善という完全な運用サイクルへと変えます。", "hero.cta1": "GitHub を見る", "hero.cta2": "設計を読む", "term.head": "cycle://content-growth/weekly", "term.s1": "計画", "term.s1t": "AI がサイクル計画を提案", "term.s1p": "目標・記憶・ツール定義・業務文脈・過去の提案を構造化タスクに変換します。", "term.s2": "人間のゲート", "term.s2t": "判断が必要な箇所をオーナーが承認", "term.s2p": "計画・ドラフト・公開・フィードバック・記憶候補がファーストクラスのチェックポイントになります。", "term.s3": "実行", "term.s3t": "エージェントの作業は自動で進む", "term.s3p": "ループ状態を保ったまま、アダプタ対応のツールでドラフトを生成します。", "term.s4": "レビュー", "term.s4t": "成果を記憶へ", "term.s4p": "フィードバックを教訓・修正・好み・次サイクルの提案に整理します。", "term.cmd": "# デモランタイムは API キー不要で動作します", "why.eyebrow": "違い", "why.h2": "ただのスケジューラでも、ただのワークフローキャンバスでもない。", "why.f1t": "ループそのものがプロダクト", "why.f1p": "Centaur Loop はエージェントの作業を中心に、業務イテレーション全体をモデル化します。", "why.f2t": "人間のゲートは明示的", "why.f2p": "AI が走れる箇所では走り、センス・コンプライアンス・公開・最終判断は人間に委ねます。", "why.f3t": "フィードバックは記憶になる", "why.f3p": "実際の結果・スクショ・メモ・指標が記憶候補としてレビューされ、次サイクルを改善します。", "lc.eyebrow": "ライフサイクル", "lc.h2": "説明責任あるエージェント作業のためのステートマシン。", "lc.lead": "多くのエージェントは答えを生成した時点で終わります。Centaur Loop は、作業がレビューされ、計測され、次サイクルへの指針になるまで運用面を開き続けます。", "lc.1n": "planning", "lc.1d": "目標と記憶から構造化された計画とタスク一覧を生成します。", "lc.2n": "awaiting plan review", "lc.2d": "作業開始前にオーナーの確認・編集を待ちます。", "lc.3n": "generating", "lc.3d": "登録済みの AI ツール定義を通じてドラフトを生成します。", "lc.4n": "awaiting review", "lc.4d": "ドラフトごとに承認・差し戻し・修正依頼を行います。", "lc.5n": "awaiting publish", "lc.5d": "手動公開を統治されたチェックポイントとして残します。", "lc.6n": "awaiting feedback", "lc.6d": "指標・メモ・スクショ・成果シグナルを収集します。", "lc.7n": "reviewing auto", "lc.7d": "何が効き、何が失敗し、なぜかを分析します。", "lc.8n": "awaiting memory", "lc.8d": "どの教訓を長期記憶に残すかを人間が決めます。", "lc.9n": "cycle complete", "lc.9d": "提案を次の実行へ持ち越します。", "lc.10m": "次へ", "lc.10n": "文脈を持って繰り返す", "lc.10d": "レビュー済みの経験からループを再開します。", "arch.eyebrow": "アーキテクチャ", "arch.h2": "読み切れるほど小さく、拡張できるほど構造化。", "arch.lead": "現状のプロトタイプは、動く React ワークベンチと TypeScript のループランタイムです。まだ初期ですが、サイクル状態・人間のチェックポイント・フィードバック・レビュー・記憶候補・アダプタ境界というコア契約はすでに見えています。", "arch.m1": "サイクルを進め、人間のゲートで停止する明示的なステートマシン。", "arch.m2": "目標・記憶・業務文脈・ツールを構造化された計画に変換。", "arch.m3": "レビュー可能なドラフトを生成し、失敗もサイクル記録に残します。", "arch.m4": "フィードバックを振り返り・教訓・次サイクル提案に変換します。", "arch.m5": "ランタイム状態をチャットメッセージ・カード・ユーザー操作にマッピング。", "arch.m6": "OpenAI 互換のモデルアクセス、ツールレジストリ、記憶境界。", "uc.eyebrow": "スターターループ", "uc.h2": "フィードバックが効く AI プロダクトのために設計。", "uc.readme": "README を開く", "uc.p1": "実装済み", "uc.t1": "SEO / GEO 成長ループ", "uc.d1": "検索と AI 回答での可視性に向けた週次のコンテンツ成長サイクル。計画・ドラフト・公開・フィードバック・レビュー・記憶を含みます。", "uc.l1a": "WeChat 記事", "uc.l1b": "小紅書ノート", "uc.l1c": "SEO / GEO コンテンツ", "uc.p2": "テンプレート", "uc.t2": "ショート動画制作ループ", "uc.d2": "毎日の選題と台本サイクル。フィードバック駆動で改善し、ファストループ / スローループへと発展。", "uc.l2a": "選題確認", "uc.l2b": "台本レビュー", "uc.l2c": "成果フィードバック", "uc.p3": "ロードマップ", "uc.t3": "エージェント ランタイム連携", "uc.d3": "既存実行系を置き換えるのではなく包む設計。一般的なワークフローやエージェント ランタイムの例を予定。", "uc.l3a": "LangGraph と Mastra", "uc.l3b": "Temporal と Inngest", "uc.l3c": "n8n 風の承認", "cmp.eyebrow": "ポジショニング", "cmp.h2": "エージェント実行の周りに欠けていたレイヤー。", "cmp.h.layer": "レイヤー", "cmp.h.handles": "扱う範囲", "cmp.h.adds": "Centaur Loop が補うもの", "cmp.r1a": "Cron / スケジュール", "cmp.r1b": "決まった時刻にジョブを起こす", "cmp.r1c": "ジョブ前後を含むサイクル全体を統治。", "cmp.r2a": "ワークフローエンジン", "cmp.r2b": "ステップ間でタスクを流す", "cmp.r2c": "レビュー・フィードバック・記憶をプロダクトの一部に。", "cmp.r3a": "エージェント フレームワーク", "cmp.r3b": "モデルとツールで計画・実行", "cmp.r3c": "人間のゲート・業務成果・次サイクル改善を追加。", "cmp.r4a": "公開ボット", "cmp.r4b": "生成結果をどこかに送る", "cmp.r4c": "公開を説明可能にし、現実の反応から学ぶ。", "cta.eyebrow": "オープンソース / MIT ライセンス", "cta.h2": "チャットを離れた後も改善し続ける AI システムを作る。", "cta.lead": "ローカルでワークベンチを動かし、ステートマシンを覗き、コアパッケージ・アダプタ・ストレージ・通知・記憶レイヤーづくりに参加してください。", "cta.b1": "GitHub でスター", "cta.b2": "Issue を開く", "foot.copy": "(c) 2026 Centaur Loop / MIT ライセンス", "foot.tag": "人間の判断 + AI の実行 + 現実のフィードバック。"}, "es": {"doc.title": "Centaur Loop — Bucles de retroalimentación de IA gobernados por humanos", "doc.desc": "Centaur Loop es el banco de trabajo open-source para bucles de retroalimentación de IA gobernados por humanos: planificar, aprobar, ejecutar, revisar, publicar, recoger feedback, recordar y mejorar.", "nav.why": "Por qué", "nav.lifecycle": "Ciclo de vida", "nav.architecture": "Arquitectura", "nav.usecases": "Casos de uso", "nav.star": "Estrella en GitHub", "hero.eyebrow": "Plano de control open-source / Bucles de IA", "hero.h1": "El banco de trabajo para bucles de IA gobernados por humanos.", "hero.lead": "Centaur Loop convierte el trabajo de los agentes en un ciclo operativo completo: planificar, aprobar, ejecutar, revisar, publicar, recoger feedback, reflexionar, recordar y mejorar la próxima ejecución.", "hero.cta1": "Ver GitHub", "hero.cta2": "Leer el diseño", "term.head": "cycle://content-growth/weekly", "term.s1": "Planificación", "term.s1t": "La IA propone el plan del ciclo", "term.s1p": "Objetivos, memoria, registro de herramientas, contexto de negocio y sugerencias previas se convierten en tareas estructuradas.", "term.s2": "Compuerta humana", "term.s2t": "El responsable aprueba lo que requiere juicio", "term.s2p": "Planes, borradores, publicación, feedback y candidatos de memoria son puntos de control de primer nivel.", "term.s3": "Ejecución", "term.s3t": "El trabajo del agente continúa automáticamente", "term.s3p": "Los borradores se generan con herramientas adaptables sin perder el estado del bucle.", "term.s4": "Revisión", "term.s4t": "Los resultados se vuelven memoria", "term.s4p": "El feedback se revisa y se transforma en lecciones, correcciones, preferencias y sugerencias para el próximo ciclo.", "term.cmd": "# el runtime de demo funciona sin claves de API", "why.eyebrow": "Qué lo diferencia", "why.h2": "No es otro programador. No es otro lienzo de workflow.", "why.f1t": "El bucle es el producto", "why.f1p": "Centaur Loop modela toda la iteración de negocio alrededor del trabajo del agente, no solo la ejecución.", "why.f2t": "Compuertas humanas explícitas", "why.f2p": "La IA corre donde puede y se detiene en los puntos donde las personas dominan gusto, cumplimiento, publicación y juicio final.", "why.f3t": "El feedback se convierte en memoria", "why.f3p": "Resultados reales, capturas, notas y métricas se revisan en candidatos de memoria que mejoran el próximo ciclo.", "lc.eyebrow": "Ciclo de vida", "lc.h2": "Una máquina de estados pensada para trabajo de agentes con responsabilidad.", "lc.lead": "La mayoría de sistemas de agentes terminan al generar la respuesta. Centaur Loop mantiene la superficie operativa abierta hasta que el trabajo se revisa, se mide y se convierte en guía para el próximo ciclo.", "lc.1n": "planning", "lc.1d": "Generar un plan estructurado y una lista de tareas a partir de objetivos y memoria.", "lc.2n": "awaiting plan review", "lc.2d": "Pausar para confirmación o ediciones del responsable antes de comenzar.", "lc.3n": "generating", "lc.3d": "Crear borradores mediante definiciones de herramientas de IA registradas.", "lc.4n": "awaiting review", "lc.4d": "Aprobar, rechazar o pedir cambios en cada borrador.", "lc.5n": "awaiting publish", "lc.5d": "Mantener la publicación manual visible como punto de control gobernado.", "lc.6n": "awaiting feedback", "lc.6d": "Capturar métricas, notas, capturas y señales de resultado.", "lc.7n": "reviewing auto", "lc.7d": "Analizar qué funcionó, qué falló y por qué.", "lc.8n": "awaiting memory", "lc.8d": "Que los humanos decidan qué lecciones merecen memoria a largo plazo.", "lc.9n": "cycle complete", "lc.9d": "Llevar las sugerencias a la próxima ejecución.", "lc.10m": "Siguiente", "lc.10n": "repetir con contexto", "lc.10d": "El bucle vuelve a comenzar con experiencia revisada.", "arch.eyebrow": "Arquitectura", "arch.h2": "Pequeño para inspeccionarlo. Estructurado para extenderlo.", "arch.lead": "El prototipo actual es un banco de trabajo en React funcionando junto a un runtime de bucle en TypeScript. Es temprano, pero los contratos clave ya son visibles: estado del ciclo, puntos humanos, feedback, revisiones, candidatos de memoria y límites de adaptadores.", "arch.m1": "Máquina de estados explícita que avanza ciclos y se detiene en compuertas humanas.", "arch.m2": "Convierte objetivos, memoria, contexto de negocio y herramientas en un plan estructurado.", "arch.m3": "Genera borradores revisables y mantiene los fallos dentro del registro del ciclo.", "arch.m4": "Convierte el feedback en retrospectivas, lecciones y sugerencias para el próximo ciclo.", "arch.m5": "Mapea el estado del runtime a mensajes de chat, tarjetas y acciones del usuario.", "arch.m6": "Acceso a modelos compatibles con OpenAI, registro de herramientas y límites de memoria.", "uc.eyebrow": "Bucles iniciales", "uc.h2": "Diseñado para productos de IA donde el feedback importa.", "uc.readme": "Abrir README", "uc.p1": "Implementado", "uc.t1": "Bucle de crecimiento SEO / GEO", "uc.d1": "Ciclos semanales de crecimiento de contenido para visibilidad en búsqueda y respuestas de IA, con planes, borradores, publicación, feedback, revisión y memoria.", "uc.l1a": "Artículos de WeChat", "uc.l1b": "Notas de Xiaohongshu", "uc.l1c": "Contenido SEO y GEO", "uc.p2": "Plantilla", "uc.t2": "Bucle de producción de vídeo corto", "uc.d2": "Ciclos diarios de tema y guion con mejora dirigida por feedback, hacia una orquestación de bucle rápido / lento.", "uc.l2a": "Confirmación de tema", "uc.l2b": "Revisión de guion", "uc.l2c": "Feedback de resultados", "uc.p3": "Roadmap", "uc.t3": "Integraciones de runtime de agentes", "uc.d3": "Diseñado para envolver sistemas de ejecución existentes en lugar de reemplazarlos, con ejemplos previstos para runtimes comunes.", "uc.l3a": "LangGraph y Mastra", "uc.l3b": "Temporal e Inngest", "uc.l3c": "Aprobaciones estilo n8n", "cmp.eyebrow": "Posicionamiento", "cmp.h2": "La capa que faltaba alrededor de la ejecución de agentes.", "cmp.h.layer": "Capa", "cmp.h.handles": "Qué resuelve", "cmp.h.adds": "Qué añade Centaur Loop", "cmp.r1a": "Cron / programación", "cmp.r1b": "Despertar un trabajo a una hora", "cmp.r1c": "Gobernar el ciclo completo antes y después de la ejecución.", "cmp.r2a": "Motores de workflow", "cmp.r2b": "Mover tareas entre pasos", "cmp.r2c": "Hacer revisión, feedback y memoria parte del producto.", "cmp.r3a": "Frameworks de agentes", "cmp.r3b": "Planificar y ejecutar con modelos y herramientas", "cmp.r3c": "Añadir compuertas humanas, resultados de negocio y mejora del próximo ciclo.", "cmp.r4a": "Bots de publicación", "cmp.r4b": "Empujar la salida generada a algún sitio", "cmp.r4c": "Mantener la publicación responsable y aprender de la respuesta real.", "cta.eyebrow": "Open source / Licencia MIT", "cta.h2": "Construye sistemas de IA que mejoran después de salir del chat.", "cta.lead": "Ejecuta el banco de trabajo en local, inspecciona la máquina de estados y ayuda a dar forma al paquete principal, adaptadores, almacenamiento, notificaciones y capa de memoria.", "cta.b1": "Estrella en GitHub", "cta.b2": "Abrir issues", "foot.copy": "(c) 2026 Centaur Loop / Licencia MIT", "foot.tag": "Juicio humano + ejecución de IA + feedback real."}};
 
-  <main id="top">
-    <section class="section hero" data-od-id="hero">
-      <div class="container hero-split">
-        <div class="hero-copy">
-          <p class="eyebrow">Open-source control plane / AI feedback loops</p>
-          <h1>The workbench for human-governed AI loops.</h1>
-          <p class="lead">Centaur Loop turns agent work into a full operating cycle: plan, approve, execute, review, publish, collect feedback, reflect, remember, and improve the next run.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://github.com/finewood2008/centaur-loop">View GitHub</a>
-            <a class="btn btn-secondary btn-arrow" href="#architecture">Read the design</a>
-          </div>
-          <ul class="badges">
-            <li class="tag">TypeScript</li>
-            <li class="tag">React 18</li>
-            <li class="tag">Vite</li>
-            <li class="tag">Zustand</li>
-            <li class="tag">OpenAI-compatible runtime</li>
-          </ul>
-        </div>
-
-        <div class="hero-visual" role="img" aria-label="Centaur Loop product interface illustration">
-          <div class="terminal">
-            <div class="terminal-head">
-              <span>cycle://content-growth/weekly</span>
-              <span class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
-            </div>
-            <div class="terminal-body">
-              <div class="loop-line">
-                <span class="stage">Planning</span>
-                <div><strong>AI proposes the cycle plan</strong><p>Goal, memories, tool registry, business context, and previous suggestions become structured tasks.</p></div>
-              </div>
-              <div class="loop-line">
-                <span class="stage active">Human Gate</span>
-                <div><strong>Owner approves what needs judgment</strong><p>Plans, drafts, publishing, feedback, and memory candidates become first-class checkpoints.</p></div>
-              </div>
-              <div class="loop-line">
-                <span class="stage">Execution</span>
-                <div><strong>Agent work continues automatically</strong><p>Drafts are generated through adapter-ready tools without losing the loop state.</p></div>
-              </div>
-              <div class="loop-line">
-                <span class="stage">Review</span>
-                <div><strong>Outcomes become memory</strong><p>Feedback is reviewed into lessons, corrections, preferences, and next-cycle suggestions.</p></div>
-              </div>
-              <div class="command">
-                npm install<br>
-                npm run dev<br>
-                <span class="terminal-comment"># demo runtime works without API keys</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="why" data-od-id="features">
-      <div class="container stack stack-loose">
-        <div class="narrow-copy">
-          <p class="eyebrow">What's different</p>
-          <h2>Not another scheduler. Not another workflow canvas.</h2>
-        </div>
-        <div class="grid-3">
-          <div class="feature card-flat">
-            <div class="feature-mark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18"/></svg>
-            </div>
-            <h3>The loop is the product</h3>
-            <p>Centaur Loop models the whole business iteration around agent work, not just the task execution step.</p>
-          </div>
-          <div class="feature card-flat">
-            <div class="feature-mark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
-            </div>
-            <h3>Human gates are explicit</h3>
-            <p>AI runs where it can, then stops at checkpoints where people own taste, compliance, publishing, and final judgment.</p>
-          </div>
-          <div class="feature card-flat">
-            <div class="feature-mark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
-            </div>
-            <h3>Feedback becomes memory</h3>
-            <p>Real outcomes, screenshots, notes, and metrics are reviewed into memory candidates that improve the next cycle.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="lifecycle" data-od-id="lifecycle">
-      <div class="container stack stack-compact">
-        <div class="grid-2-1">
-          <div>
-            <p class="eyebrow">Lifecycle</p>
-            <h2>A state machine built for accountable agent work.</h2>
-          </div>
-          <p class="lead">Most agent systems end when the answer is generated. Centaur Loop keeps the operational surface open until the work is reviewed, measured, and turned into next-cycle guidance.</p>
-        </div>
-        <ol class="flow">
-          <li class="flow-step"><span class="meta">01</span><strong>planning</strong><p>Generate a structured plan and task list from goals and memory.</p></li>
-          <li class="flow-step"><span class="meta">02</span><strong>awaiting plan review</strong><p>Pause for owner confirmation or edits before work begins.</p></li>
-          <li class="flow-step"><span class="meta">03</span><strong>generating</strong><p>Create drafts through registered AI tool definitions.</p></li>
-          <li class="flow-step"><span class="meta">04</span><strong>awaiting review</strong><p>Approve, reject, or request changes per draft.</p></li>
-          <li class="flow-step"><span class="meta">05</span><strong>awaiting publish</strong><p>Keep manual publishing visible as a governed checkpoint.</p></li>
-          <li class="flow-step"><span class="meta">06</span><strong>awaiting feedback</strong><p>Capture metrics, notes, screenshots, and outcome signals.</p></li>
-          <li class="flow-step"><span class="meta">07</span><strong>reviewing auto</strong><p>Analyze what worked, what failed, and why.</p></li>
-          <li class="flow-step"><span class="meta">08</span><strong>awaiting memory</strong><p>Ask humans which lessons deserve long-term memory.</p></li>
-          <li class="flow-step"><span class="meta">09</span><strong>cycle complete</strong><p>Carry suggestions forward into the next run.</p></li>
-          <li class="flow-step"><span class="meta">Next</span><strong>repeat with context</strong><p>The loop starts again with reviewed experience.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section" id="architecture" data-od-id="architecture">
-      <div class="container architecture">
-        <div class="stack">
-          <p class="eyebrow">Architecture</p>
-          <h2>Small enough to inspect. Structured enough to extend.</h2>
-          <p class="lead">The current prototype is a working React workbench plus TypeScript loop runtime. It is early, but the core contracts are already visible: cycle state, human checkpoints, feedback, reviews, memory candidates, and adapter boundaries.</p>
-          <div class="code" role="img" aria-label="Centaur Loop lifecycle code sample">Plan -&gt; Approve -&gt; Execute -&gt; Review -&gt; Publish -&gt; Feedback -&gt; Reflect -&gt; Remember -&gt; Next Cycle</div>
-        </div>
-        <div class="module-list">
-          <div class="module"><strong>loopEngine.ts</strong><p>Explicit state machine that advances cycles and stops at human gates.</p></div>
-          <div class="module"><strong>loopPlanner.ts</strong><p>Turns goals, memory, business context, and tools into a structured plan.</p></div>
-          <div class="module"><strong>loopExecutor.ts</strong><p>Generates reviewable drafts and keeps failures inside the cycle record.</p></div>
-          <div class="module"><strong>loopReviewer.ts</strong><p>Converts feedback into retrospectives, lessons, and next-cycle suggestions.</p></div>
-          <div class="module"><strong>loopChat.ts</strong><p>Maps runtime state to chat messages, cards, and user actions.</p></div>
-          <div class="module"><strong>adapters/*</strong><p>OpenAI-compatible model access, tool registry, and memory boundaries.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="use-cases" data-od-id="use-cases">
-      <div class="container stack stack-compact">
-        <div class="row-between">
-          <div class="narrow-copy">
-            <p class="eyebrow">Starter loops</p>
-            <h2>Designed for AI products where feedback matters.</h2>
-          </div>
-          <a class="btn btn-ghost btn-arrow" href="https://github.com/finewood2008/centaur-loop#readme">Open README</a>
-        </div>
-        <div class="grid-3">
-          <article class="card usecase">
-            <div>
-              <span class="pill">Implemented</span>
-              <h3 class="usecase-title">SEO / GEO Growth Loop</h3>
-              <p>Weekly content growth cycles for search and AI-answer visibility, including plans, drafts, publishing, feedback, review, and memory.</p>
-            </div>
-            <ul class="check-list">
-              <li>WeChat articles</li>
-              <li>Xiaohongshu notes</li>
-              <li>SEO and GEO content</li>
-            </ul>
-          </article>
-          <article class="card usecase">
-            <div>
-              <span class="pill">Template</span>
-              <h3 class="usecase-title">Short-Video Production Loop</h3>
-              <p>Daily topic and script cycles with feedback-driven improvement and a path toward fast-loop / slow-loop orchestration.</p>
-            </div>
-            <ul class="check-list">
-              <li>Topic confirmation</li>
-              <li>Script review</li>
-              <li>Outcome feedback</li>
-            </ul>
-          </article>
-          <article class="card usecase">
-            <div>
-              <span class="pill">Roadmap</span>
-              <h3 class="usecase-title">Agent Runtime Integrations</h3>
-              <p>Designed to wrap existing execution systems instead of replacing them, with examples planned for common workflow and agent runtimes.</p>
-            </div>
-            <ul class="check-list">
-              <li>LangGraph and Mastra</li>
-              <li>Temporal and Inngest</li>
-              <li>n8n-style approvals</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-od-id="comparison">
-      <div class="container">
-        <div class="center-heading">
-          <p class="eyebrow">Positioning</p>
-          <h2>The missing layer around agent execution.</h2>
-        </div>
-        <table class="ds-table">
-          <thead>
-            <tr>
-              <th>Layer</th>
-              <th>What it handles</th>
-              <th>What Centaur Loop adds</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Cron / schedules</td><td>Wake a job at a time</td><td>Govern the full cycle before and after the job runs.</td></tr>
-            <tr><td>Workflow engines</td><td>Move tasks through steps</td><td>Make review, feedback, and memory part of the product surface.</td></tr>
-            <tr><td>Agent frameworks</td><td>Plan and execute with models/tools</td><td>Add human gates, business outcomes, and next-cycle improvement.</td></tr>
-            <tr><td>Publishing bots</td><td>Push generated output somewhere</td><td>Keep publishing accountable and learn from real-world response.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section cta-band" data-od-id="cta-strip">
-      <div class="container">
-        <p class="eyebrow">Open source / MIT license</p>
-        <h2>Build AI systems that improve after the work leaves chat.</h2>
-        <p class="lead">Run the workbench locally, inspect the state machine, and help shape the core package, adapters, storage, notifications, and memory layer.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://github.com/finewood2008/centaur-loop">Star on GitHub</a>
-          <a class="btn btn-secondary" href="https://github.com/finewood2008/centaur-loop/issues">Open issues</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="pagefoot" data-od-id="footer">
-    <div class="container row-between">
-      <span>(c) 2026 Centaur Loop / MIT License</span>
-      <span class="meta">Human judgment + AI execution + real feedback.</span>
-    </div>
-  </footer>
-</body>
+(function(){
+  var SUPPORTED = ['en','zh','ja','es'];
+  var HTML_LANG = {en:'en', zh:'zh-CN', ja:'ja', es:'es'};
+  function detect(){
+    try { var s = localStorage.getItem('cl_lang'); if (s && SUPPORTED.indexOf(s)>=0) return s; } catch(e){}
+    var n = (navigator.language || 'en').toLowerCase();
+    if (n.indexOf('zh')===0) return 'zh';
+    if (n.indexOf('ja')===0) return 'ja';
+    if (n.indexOf('es')===0) return 'es';
+    return 'en';
+  }
+  function apply(lang){
+    var dict = window.__I18N__[lang] || window.__I18N__.en;
+    document.documentElement.setAttribute('lang', HTML_LANG[lang] || 'en');
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      if (dict[k] != null) el.textContent = dict[k];
+    });
+    if (dict['doc.title']) document.title = dict['doc.title'];
+    var md = document.querySelector('meta[name="description"]');
+    if (md && dict['doc.desc']) md.setAttribute('content', dict['doc.desc']);
+    document.querySelectorAll('.lang-switch button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang')===lang);
+    });
+    try { localStorage.setItem('cl_lang', lang); } catch(e){}
+  }
+  document.querySelectorAll('.lang-switch button').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
+  });
+  apply(detect());
+})();
+</script></body>
 </html>
